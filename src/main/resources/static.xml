@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<properties>
+
+    <portal.forward.subdomain>
+        account
+    </portal.forward.subdomain>
+
+    <portal.forward.url>
+        /login.html
+    </portal.forward.url>
+
+    <portal.forward.timeout>
+        2000
+    </portal.forward.timeout>
+
+</properties>

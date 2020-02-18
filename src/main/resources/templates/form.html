@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"
+      xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <title>
+            Webform Demo
+        </title>
+
+        <link rel="stylesheet" href="../static/css/global.css">
+        <link rel="stylesheet" href="../static/css/form.css">
+    </head>
+
+    <body>
+
+        <main class="main">
+
+            <div class="container">
+
+                <div class="content">
+
+                    <div class="head-section section">
+
+                        <h3>
+                            Webform Demo
+                        </h3>
+
+                    </div>
+
+                    <div class="section">
+
+                        <form action="#" th:action="@{/submit}" th:object="${formObject}" method="post">
+
+                            <div th:if="${password != null
+                                       && password != null
+                                       && (!password.equals(repeated))}" class="message error">
+                                <p>Passwords do not match.</p>
+                            </div>
+
+                            <p>
+                                <div th:if="${#fields.hasErrors('email')}" class="message error">
+                                    <p th:errors="*{email}"></p>
+                                </div>
+
+                                <label>Email:
+                                    <input type="text"
+                                           th:field="*{email}"
+                                           aria-placeholder="Your e-mail address..."
+                                           placeholder="Your e-mail address..."/>
+                                </label>
+                            </p>
+
+                            <p>
+                                <div th:if="${#fields.hasErrors('password')}" class="message error">
+                                    <p th:errors="*{password}"></p>
+                                </div>
+
+                                <label>Password:
+                                    <input type="password"
+                                           th:field="*{password}"
+                                           aria-placeholder="Think of a new password..."
+                                           placeholder="Think of a new password..."/>
+                                </label>
+                            </p>
+
+                            <p>
+                                <div th:if="${#fields.hasErrors('repeated')}" class="message error">
+                                    <p th:errors="*{repeated}"></p>
+                                </div>
+
+                                <label>Repeat password:
+                                    <input type="password"
+                                           th:field="*{repeated}"
+                                           aria-placeholder="Repeat your new password..."
+                                           placeholder="Repeat your new password..."/>
+                                </label>
+                            </p>
+
+                            <p>
+                                <div th:if="${#fields.hasErrors('accept')}" class="message error">
+                                    <p th:errors="*{accept}"></p>
+                                </div>
+
+                                <label>
+                                    <input type="checkbox"
+                                           th:field="*{accept}"/>
+                                    I confirm that I am over 18 and I accept the Terms of Service
+                                </label>
+                            </p>
+
+                            <p>
+                                <input type="submit" value="Create My Account"/>
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <footer>
+
+            <p class="note"
+               style="margin-top: 1rem">
+                Have fun
+            </p>
+
+        </footer>
+
+    </body>
+
+</html>
